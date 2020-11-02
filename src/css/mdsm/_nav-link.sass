@@ -1,0 +1,29 @@
+.nav-link,
+.dropdown-item
+	font-size: 2rem
+	text-transform: uppercase
+	padding: $nav-link-padding-y * 2 $nav-link-padding-x * 4
+
+.nav-link
+	position: relative
+
+	&.dropdown-toggle
+		&:after
+			position: absolute
+			right: $nav-link-padding-x
+			top: 50%
+			color: $navbar-dark-color
+			transform-origin: center
+
+		&.mdsm-active
+			&:after
+				transform: rotate(180deg)
+
+.dropdown-item
+	color: $navbar-dark-color
+	padding: $nav-link-padding-y * 2 $nav-link-padding-x * 6
+
+	&:focus,
+	&:active
+		background: initial
+		color: $navbar-dark-active-color

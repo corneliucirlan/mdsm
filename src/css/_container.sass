@@ -1,0 +1,38 @@
+html
+	font-size: 62.5%
+
+body
+	overflow-x: hidden
+
+.container-fluid
+	max-width: 1280px
+	margin: auto
+
+	header &
+		transform: skewY($angle)
+		position: relative
+
+main
+	// margin-top: 10rem
+	margin-top: $skew-padding
+
+.skewed-background
+	position: relative
+	// background-image: linear-gradient(45deg, #6303B1, #ff0099)
+	transform: skewy(-$angle)
+	// padding: 0 0 $skew-padding 0
+	// margin-top: -1px
+
+	&:before
+		// background-image: linear-gradient(45deg, #654ea3, #eaafc8)
+		background: $black
+		// transform: skewy(-$angle)
+		content: ""
+		position: absolute
+		left: 0
+		top: 0
+		top: -100%
+		right: 0
+		bottom: 0
+		outline: 1px solid transparent
+		backface-visibility: hidden
