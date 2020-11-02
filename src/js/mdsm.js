@@ -49,32 +49,18 @@
 					// Toggle dropdown menu
 					toggleDropDown(event.target)
 					
-					// Toggle dropdown indicator
-					$(event.target).toggleClass(activeState)
 				})
 
 			// If not touch enabled
 			else
 				$('.dropdown-toggle').hover(event => {
-					
+
 					// Toggle dropdown menu
 					toggleDropDown(event.target)
 
 					// Prevent event propagation
 					event.stopImmediatePropagation()
 				})
-
-		$('nav').on('click', 'a', event => {
-
-			// Get clicked anchor
-			let anchor = $(event.target)
-			
-			// If empty anchor, prevent default bahavior
-			if (anchor.attr('href') === '#') event.preventDefault()
-
-				// Close menu
-				else closeMenu()
-		})
 
 		return this
 	}
@@ -86,11 +72,14 @@
 	
 	const closeMenu = () => {
 		$('nav').removeClass(activeState)
+		$('.dropdown-toggle').removeClass(activeState)
+		$('.dropdown-menu').removeClass(activeState)
 		$('body').removeClass(disableScroll)
 	}
 
 	const toggleDropDown = target => {
 		let dMenu = $(target).next('.dropdown-menu')
+		$(target).toggleClass(activeState)
 		dMenu.toggleClass(activeState)
 	}
 	

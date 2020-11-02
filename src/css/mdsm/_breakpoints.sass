@@ -17,17 +17,29 @@
 			.navbar-nav
 				display: flex
 
+				// .dropdown:hover
+				// 	background-color: white
+				// 	color: $navbar-light-color !important					
+
+				// 	.nav-link
+				// 		color: $navbar-light-color !important					
+
 				.nav-link,
 				.dropdown-item
 					padding: $nav-link-padding-y $nav-link-padding-x * 2
 
 				.nav-link
 					&.dropdown-toggle
+						&:hover
+							background: inherit
+							// color: inherit
+
 						&:after
 							display: none
 
 				.dropdown-item
-					color: $navbar-light-color
+					background: $dropdown-bg
+					color: $navbar-dark-color
 					padding: $nav-link-padding-y $nav-link-padding-x * 2
 
 					&:focus,
