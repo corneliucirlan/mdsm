@@ -19,57 +19,62 @@
 	// Active menu overlay
 	const overlay = '<div class="mdsm-overlay"></div>'
 
-	$.fn.mdsm = () => {
+	$.fn.mdsm = function() {
 
 		// Add overlay to DOM
 		$(overlay).insertBefore('.navbar-collapse')	
 
-		// Enable menu
+		// Open menu
 		$('.navbar-toggler').on('click', openMenu)
 
-		// Disable menu
+		// Close menu
 		$('.mdsm-overlay').on('click', closeMenu)
 		$(document).on('keyup', event => {
-			
+
 			// Get the key
 			let key = event.key || event.keyCode
-			
+
 			// Check if key is ESCAPE
 			if (key === 'Escape' || key === 'Esc' || key === 27)
 				closeMenu()
 		})
 
-		// Dropdown menu activation if touch enabled
+		// Clicks if device is touch enabled
 		if (isTouchEnabled())
-				$('.dropdown-toggle').on('click', event => {
+				$('nav').on('click', 'a', event => {
 
-					// Prevent default action
-					event.preventDefault()
+					let touchTarget = event.target
 
-					// Toggle dropdown menu
-					toggleDropDown(event.target)
-					
+					// Dropdown menu toggle
+					if ($(touchTarget).hasClass('dropdown-toggle')) {
+						event.preventDefault()
+						toggleDropDown(touchTarget)
+					}
+
+					if ($(touchTarget).attr('href') !== '#') {
+						closeMenu()
+					}
 				})
-
+				
 			// If not touch enabled
 			else
 				$('.dropdown-toggle').hover(event => {
-
+					
 					// Toggle dropdown menu
 					toggleDropDown(event.target)
-
+					
 					// Prevent event propagation
 					event.stopImmediatePropagation()
 				})
-
+console.log(this)
 		return this
 	}
-	
+
 	const openMenu = () => {
 		$('nav').addClass(activeState)
 		$('body').addClass(disableScroll)
 	}
-	
+
 	const closeMenu = () => {
 		$('nav').removeClass(activeState)
 		$('.dropdown-toggle').removeClass(activeState)
