@@ -66,7 +66,7 @@
 					// Prevent event propagation
 					event.stopImmediatePropagation()
 				})
-console.log(this)
+
 		return this
 	}
 
