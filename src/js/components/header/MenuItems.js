@@ -21,17 +21,17 @@ export const MenuItems = [
 		hasSubmenu: true,
 		submenuItems: [
 			{
-				title: 'Installation',
+				title: 'Install',
 				href: '#installation',
 				classes: 'dropdown-item',
 			},
 			{
-				title: 'Usage',
+				title: 'Use',
 				href: '#usage',
 				classes: 'dropdown-item',
 			},
 			{
-				title: 'Settings',
+				title: 'Configure',
 				href: '#settings',
 				classes: 'dropdown-item',
 			},

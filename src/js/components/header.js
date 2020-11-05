@@ -9,7 +9,7 @@ const HeaderContainer = () => {
 
 			<div className='skewed-background'>
 				<div className='container-fluid'>
-						
+
 					<nav className="d-flex navbar navbar-expand-md navbar-dark bg-dark">
 						<a className="navbar-brand" href="#">mdsm</a>
 						<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,8 +48,6 @@ const HeaderContainer = () => {
 					</div>
 				</div>
 			</div>
-
-
 		</header>
 	)
 

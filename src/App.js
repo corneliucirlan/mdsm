@@ -14,7 +14,7 @@ const App = () => {
 	useEffect(() => {
 
 		// Call the MDSM plugin
-		$('nav').mdsm();
+		$('.navbar-toggler').mdsm();
 
 		// Highlight code samples
 		Prism.highlightAll()

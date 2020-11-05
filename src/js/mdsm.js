@@ -10,101 +10,118 @@
 (function($) {
 	'use strict'
 
-	// Disable scrolling
-	const disableScroll = 'mdsm-ds'
-
-	// Active state
-	const activeState = 'mdsm-active'
-
-	// Active menu overlay
-	const overlay = '<div class="mdsm-overlay"></div>'
-
 	$.fn.mdsm = function() {
 
-		// Add overlay to DOM
-		$(overlay).insertBefore('.navbar-collapse')	
+		// Disable scrolling
+		const disableScroll = 'mdsm-ds'
 
-		// Open menu
-		$('.navbar-toggler').on('click', openMenu)
+		// Active state
+		const activeState = 'mdsm-active'
 
-		// Close menu
-		$('.mdsm-overlay').on('click', closeMenu)
-		$(document).on('keyup', event => {
+		// Active menu overlay
+		const overlayHTML = '<div class="mdsm-overlay"></div>'
+		const overlay = '.mdsm-overlay'
 
-			// Get the key
-			let key = event.key || event.keyCode
+		let classes = {
+			dropdownToggle: 'dropdown-toggle',
+			dropdownMenu: 'dropdown-menu'
+		}
 
-			// Check if key is ESCAPE
-			if (key === 'Escape' || key === 'Esc' || key === 27)
-				closeMenu()
+		// Toggle dropdown submenu
+		const toggleDropDown = target => {
+			let dMenu = $(target).next(`.${classes.dropdownMenu}`)
+			$(target).toggleClass(activeState)
+			dMenu.toggleClass(activeState)
+		}
+
+		// Check if device is touch enabled
+		const isTouchEnabled = () => {
+
+			var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ');
+
+			var mq = function (query) {
+				return window.matchMedia(query).matches;
+			}
+
+			if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+				return true;
+			}
+
+			// include the 'heartz' as a way to have a non matching MQ to help terminate the join
+			// https://git.io/vznFH
+			var query = ['(', prefixes.join('touch-enabled),('), 'heartz', ')'].join('');
+			return mq(query);
+		}
+
+		return this.each((index, element) => {
+
+			// Menu trigger
+			let trigger = element,
+
+				// Target menu
+				target = $(trigger).attr('data-target'),
+
+				// Mobile menu parent
+				parent = $(trigger).parent('.navbar')
+
+			// Open mobile menu
+			const openMenu = () => {
+				$(parent).addClass(activeState)
+				$('body').addClass(disableScroll)
+			}
+
+			// Close mobile menu
+			const closeMenu = () => {
+				$(parent).removeClass(activeState)
+				$(`.${classes.dropdownToggle}`).removeClass(activeState)
+				$(`.${classes.dropdownMenu}`).removeClass(activeState)
+				$('body').removeClass(disableScroll)
+			}
+			
+			// Add overlay to DOM
+			$(overlayHTML).insertBefore(target)
+
+			// Open menu
+			$(trigger).on('click', openMenu)
+
+			// Close menu
+			$(overlay).on('click', closeMenu)
+			$(document).on('keyup', event => {
+
+				// Get the key
+				let key = event.key || event.keyCode
+
+				// Check if key is ESCAPE
+				if (key === 'Escape' || key === 'Esc' || key === 27)
+					closeMenu()
+			})
+
+			// Clicks if device is touch enabled
+			if (isTouchEnabled())
+					$(target).on('click', 'a', event => {
+
+						// Dropdown menu toggle
+						if ($(event.target).hasClass(classes.dropdownToggle)) {
+							event.preventDefault()
+							toggleDropDown(event.target)
+						}
+
+						if ($(event.target).attr('href') !== '#') {
+							closeMenu()
+						}
+					})
+
+				// If not touch enabled
+				else
+					$(`.${classes.dropdownToggle}`).hover(event => {
+						
+						// Toggle dropdown menu
+						toggleDropDown(event.target)
+						
+						// Prevent event propagation
+						event.stopImmediatePropagation()
+					})
 		})
-
-		// Clicks if device is touch enabled
-		if (isTouchEnabled())
-				$('nav').on('click', 'a', event => {
-
-					let touchTarget = event.target
-
-					// Dropdown menu toggle
-					if ($(touchTarget).hasClass('dropdown-toggle')) {
-						event.preventDefault()
-						toggleDropDown(touchTarget)
-					}
-
-					if ($(touchTarget).attr('href') !== '#') {
-						closeMenu()
-					}
-				})
-				
-			// If not touch enabled
-			else
-				$('.dropdown-toggle').hover(event => {
-					
-					// Toggle dropdown menu
-					toggleDropDown(event.target)
-					
-					// Prevent event propagation
-					event.stopImmediatePropagation()
-				})
-
-		return this
-	}
-
-	const openMenu = () => {
-		$('nav').addClass(activeState)
-		$('body').addClass(disableScroll)
-	}
-
-	const closeMenu = () => {
-		$('nav').removeClass(activeState)
-		$('.dropdown-toggle').removeClass(activeState)
-		$('.dropdown-menu').removeClass(activeState)
-		$('body').removeClass(disableScroll)
-	}
-
-	const toggleDropDown = target => {
-		let dMenu = $(target).next('.dropdown-menu')
-		$(target).toggleClass(activeState)
-		dMenu.toggleClass(activeState)
-	}
-	
-	// Check if device is touch enabled
-	const isTouchEnabled = () => {
-
-		var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ');
-
-		var mq = function (query) {
-			return window.matchMedia(query).matches;
-		}
-
-		if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
-			return true;
-		}
-
-		// include the 'heartz' as a way to have a non matching MQ to help terminate the join
-		// https://git.io/vznFH
-		var query = ['(', prefixes.join('touch-enabled),('), 'heartz', ')'].join('');
-		return mq(query);
 	}
 	
 })(jQuery)
