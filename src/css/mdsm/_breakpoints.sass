@@ -1,8 +1,8 @@
 @each $breakpoint in map-keys($grid-breakpoints)
 	@include media-breakpoint-up($breakpoint)
 		&.navbar-expand-#{$breakpoint}
-			flex-direction: row
-			justify-content: space-between
+			// flex-direction: row
+			// justify-content: space-between
 
 			.navbar-collapse
 				position: relative
@@ -17,13 +17,6 @@
 			.navbar-nav
 				display: flex
 
-				// .dropdown:hover
-				// 	background-color: white
-				// 	color: $navbar-light-color !important					
-
-				// 	.nav-link
-				// 		color: $navbar-light-color !important					
-
 				.nav-link,
 				.dropdown-item
 					padding: $nav-link-padding-y $nav-link-padding-x * 2
@@ -31,20 +24,15 @@
 				.nav-link
 					&.dropdown-toggle
 						&:hover
-							background: inherit
-							// color: inherit
+							background-color: inherit
 
 						&:after
 							display: none
 
-				.dropdown-item
-					background: $dropdown-bg
-					color: $navbar-dark-color
-					padding: $nav-link-padding-y $nav-link-padding-x * 2
+			&.bg-none
+				&.navbar-light
+					@include navbar-bg(transparent, $white)
 
-					&:focus,
-					&:active
-						color: initial
-
-			.dropdown-menu
-				background-color: $dropdown-bg
+			&.bg-none
+				&.navbar-dark
+					@include navbar-bg(transparent, $black)

@@ -1,6 +1,22 @@
 .navbar
-	flex-direction: row-reverse
-	justify-content: flex-end
+	// justify-content: flex-start
+
+	&.navbar-light
+		@include navbar-color($navbar-light-color, $navbar-light-hover-color, $navbar-light-hover-color)
+
+	&.navbar-dark
+		@include navbar-color($navbar-dark-color, $navbar-dark-hover-color, $navbar-dark-hover-color)
+
+	&.bg-none
+		&.navbar-light
+			@include navbar-bg($white, $white)
+
+		&.navbar-dark
+			@include navbar-bg($black, $black)
+
+	@each $key, $color in $theme-colors
+		&.bg-#{$key}
+			@include navbar-color($color, $color, $color)
 
 	// Navbar Collapse
 	@import 'navbar-collapse'

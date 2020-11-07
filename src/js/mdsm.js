@@ -22,16 +22,15 @@
 		const overlayHTML = '<div class="mdsm-overlay"></div>'
 		const overlay = '.mdsm-overlay'
 
-		let classes = {
-			dropdownToggle: 'dropdown-toggle',
-			dropdownMenu: 'dropdown-menu'
+		let dropdown = {
+			toggle: 'dropdown-toggle',
+			menu: 'dropdown-menu'
 		}
 
 		// Toggle dropdown submenu
 		const toggleDropDown = target => {
-			let dMenu = $(target).next(`.${classes.dropdownMenu}`)
 			$(target).toggleClass(activeState)
-			dMenu.toggleClass(activeState)
+			$(target).next(`.${dropdown.menu}`).toggleClass(activeState)
 		}
 
 		// Check if device is touch enabled
@@ -64,6 +63,12 @@
 				// Mobile menu parent
 				parent = $(trigger).parent('.navbar')
 
+			// Check if menu has left/right added
+			if (false === $(target).hasClass('navbar-collapse-left') && false === $(target).hasClass('navbar-collapse-right')) {
+				console.log('.navbar-collapse-left added')
+				$(target).addClass('navbar-collapse-left')
+			}
+
 			// Open mobile menu
 			const openMenu = () => {
 				$(parent).addClass(activeState)
@@ -73,8 +78,8 @@
 			// Close mobile menu
 			const closeMenu = () => {
 				$(parent).removeClass(activeState)
-				$(`.${classes.dropdownToggle}`).removeClass(activeState)
-				$(`.${classes.dropdownMenu}`).removeClass(activeState)
+				$(`.${dropdown.toggle}`).removeClass(activeState)
+				$(`.${dropdown.menu}`).removeClass(activeState)
 				$('body').removeClass(disableScroll)
 			}
 			
@@ -101,7 +106,7 @@
 					$(target).on('click', 'a', event => {
 
 						// Dropdown menu toggle
-						if ($(event.target).hasClass(classes.dropdownToggle)) {
+						if ($(event.target).hasClass(dropdown.toggle)) {
 							event.preventDefault()
 							toggleDropDown(event.target)
 						}
@@ -113,7 +118,7 @@
 
 				// If not touch enabled
 				else
-					$(`.${classes.dropdownToggle}`).hover(event => {
+					$(`.${dropdown.toggle}`).hover(event => {
 						
 						// Toggle dropdown menu
 						toggleDropDown(event.target)

@@ -7,9 +7,14 @@
 	min-width: 280px
 	height: 100vh
 	top: 0
-	left: -100%
 	z-index: 10000
 	box-shadow: 0 0 20px 0px rgba(0, 0, 0, .15)
+
+	&.navbar-collapse-left
+		left: -120%
+
+	&.navbar-collapse-right
+		right: -120%
 
 	.container-fluid &
 		margin-left: -$grid-gutter-width / 2

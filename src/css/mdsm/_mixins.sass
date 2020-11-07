@@ -1,0 +1,31 @@
+@mixin navbar-color($color, $hover-color, $active-color)
+	.navbar-nav
+		.nav-link
+			&.dropdown-toggle
+				&:after
+					color: $color
+
+	.dropdown-menu
+		color: $color
+
+		.dropdown-item
+			&:hover,
+			&:focus
+				color: $hover-color
+			
+			&:active
+				color: $active-color
+
+@mixin navbar-bg($navbar-bg-color, $dropdown-bg-color)
+			.navbar-collapse
+				background-color: $navbar-bg-color
+
+			.dropdown-menu
+				background-color: $dropdown-bg-color
+
+				.dropdown-item
+					&:hover,
+					&:active,
+					&:focus,
+					&:visited
+						background-color: $dropdown-bg-color

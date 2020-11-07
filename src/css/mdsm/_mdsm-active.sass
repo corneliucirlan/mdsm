@@ -4,7 +4,13 @@
 		display: block
 
 	.navbar-collapse
-		left: 0
+		&.navbar-collapse-left
+			animation: fly-in-left .1s ease-out
+			left: 0
+
+		&.navbar-collapse-right
+			animation: fly-in-right .1s ease-out
+			right: 0
 
 	.navbar-nav
 		display: flex
