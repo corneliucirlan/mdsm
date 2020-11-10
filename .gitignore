@@ -73,4 +73,11 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Demo files
+src/css/demo
+src/js/demo
+src/App.*
+src/index.*
+
+
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,react
