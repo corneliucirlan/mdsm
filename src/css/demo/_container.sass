@@ -5,7 +5,7 @@ body
 	overflow-x: hidden
 
 .container-fluid
-	max-width: 1280px
+	max-width: $max-content-width
 	margin: auto
 
 	header &
@@ -13,21 +13,14 @@ body
 		position: relative
 
 main
-	// margin-top: 10rem
 	margin-top: $skew-padding
 
 .skewed-background
 	position: relative
-	// background-image: linear-gradient(45deg, #6303B1, #ff0099)
 	transform: skewy(-$angle)
-	// padding: 0 0 $skew-padding 0
-	// margin-top: -1px
 
 	&:before
-		background: $black
-		// background-image: linear-gradient(45deg, #654ea3, #eaafc8)
-		// background-image: linear-gradient(45deg, #6303B1, #ff0099)
-		// transform: skewy(-$angle)
+		background: $black $skew-background
 		content: ""
 		position: absolute
 		left: 0

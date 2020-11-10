@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react'
+import Prism from 'prismjs'
+
+import Header from './js/demo/header'
+import CodeSample from './js/demo/codeSample'
+import { CodeExamples } from './js/demo/data'
+
+// MDSM
 import './js/mdsm.js'
 
-import Prism from 'prismjs';
-
-import Header from './js/components/header'
-import codeSamples from './js/components/codeSamples'
-
+// CSS
 import './App.sass'
-import CodeSample from './js/components/codeSample';
 
 const App = () => {
 
@@ -22,7 +24,7 @@ const App = () => {
 
 
 	return (
-		<div className=''>
+		<div>
 
 			<Header />
 
@@ -31,7 +33,7 @@ const App = () => {
 					<h2 id='installation'>Installation</h2>
 					<div className='row'>
 						<div className='col-12 col-md-6'>
-							<CodeSample lang='powershell' title='Package manager' code={codeSamples.install} />
+							<CodeSample lang='powershell' title='Package manager' code={CodeExamples.install} />
 						</div>
 						<div className='col-12 col-md-6'>
 							<h3>Manual</h3>
@@ -43,10 +45,10 @@ const App = () => {
 					<h2 id='usage'>Usage</h2>
 					<div className='row'>
 						<div className='col'>
-							<CodeSample lang='markup' description={codeSamples.dependeciesDescription} code={codeSamples.dependecies} />
-							<CodeSample lang='markup' description={codeSamples.scriptsDescription} code={codeSamples.scripts} />
-							<CodeSample lang='markup' description={codeSamples.markupDescription} code={codeSamples.markup} />
-							<CodeSample lang='javascript' description={codeSamples.callDescription} code={codeSamples.call} />
+							<CodeSample lang='markup' description={CodeExamples.dependeciesDescription} code={CodeExamples.dependecies} />
+							<CodeSample lang='markup' description={CodeExamples.scriptsDescription} code={CodeExamples.scripts} />
+							<CodeSample lang='markup' description={CodeExamples.markupDescription} code={CodeExamples.markup} />
+							<CodeSample lang='javascript' description={CodeExamples.callDescription} code={CodeExamples.call} />
 						</div>
 					</div>
 				</div>

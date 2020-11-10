@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { MenuItems } from './header/MenuItems'
+import { MenuItems } from './data'
 
-const HeaderContainer = () => {
+const Header = () => {
 
 	return (
 		<header>
@@ -54,4 +54,4 @@ const HeaderContainer = () => {
 
 }
 
-export default HeaderContainer
+export default Header
