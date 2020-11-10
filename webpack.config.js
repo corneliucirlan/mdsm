@@ -1,6 +1,5 @@
 const path = require("path"),
 	webpack = require("webpack"),
-	HtmlWebPackPlugin = require("html-webpack-plugin"),
 	MiniCssExtractPlugin = require("mini-css-extract-plugin"),
 	OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin"),
 	FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries"),
@@ -10,33 +9,16 @@ const path = require("path"),
 
 module.exports = {
 	context: __dirname,
-	entry: './src/index.js',
-	// entry: {
-	// 	"dist/js/mdsm.min": path.resolve(__dirname, "src/js/mdsm.js"),
-		// "dist/css/mdsm.min": path.resolve(__dirname, "src/css/mdsm.sass")
-	// },
-	resolve: {
-		extensions: ['*', '.js', '.jsx']
+	entry: {
+		"dist/js/mdsm.min": path.resolve(__dirname, "src/js/mdsm.js"),
+		"dist/css/mdsm.min": path.resolve(__dirname, "src/css/mdsm.sass")
 	},
-	devtool: 'source-map',
 	output: {
-		path: path.join(__dirname, 'dist/'),
-		filename: 'bundle.js'
+		path: path.resolve(__dirname),
+		filename: "[name].js",
 	},
-	// output: {
-	// 	path: path.resolve(__dirname),
-	// 	filename: "[name].js",
-	// },
 	module: {
 		rules: [
-			{
-				test: /\.html$/,
-				use: [
-					{
-						loader: "html-loader",
-					},
-				],
-			},
 			{
 				enforce: "pre",
 				exclude: /node_modules/,
@@ -53,31 +35,10 @@ module.exports = {
 			{
 				test: /\.s?[ac]ss|css$/,
 				use: [
-					{
-						loader: MiniCssExtractPlugin.loader,
-						options: {
-							sourceMap: true,
-							hmr: process.env.NODE_ENV === 'development'
-						},
-					},
-					{
-						loader: "css-loader",
-						options: {
-							sourceMap: true,
-						},
-					},
-					{
-						loader: "postcss-loader",
-						options: {
-							sourceMap: true,
-						},
-					},
-					{
-						loader: "sass-loader",
-						options: {
-							sourceMap: true,
-						},
-					},
+					MiniCssExtractPlugin.loader,
+					'css-loader',
+					'postcss-loader',
+					'sass-loader'
 				],
 			},
 		],
@@ -99,15 +60,11 @@ module.exports = {
 				],
 			},
 		}),
-		new HtmlWebPackPlugin({
-			template: "./src/index.html",
-			filename: "./index.html",
-		}),
 	],
 	optimization: {
 		minimizer: [new UglifyJsPlugin(), new OptimizeCssAssetsPlugin()],
-	}
-	// externals: {
-	// 	jquery: "jQuery",
-	// },
+	},
+	externals: {
+		jquery: "jQuery",
+	},
 }
