@@ -1,0 +1,5 @@
+# Preserve production webpack config
+webpack.config.js merge=prod
+
+# Preserve production gitignore config
+.gitignore merge=prod
