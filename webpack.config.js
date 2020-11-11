@@ -11,10 +11,6 @@ const path = require("path"),
 module.exports = {
 	context: __dirname,
 	entry: './src/index.js',
-	// entry: {
-	// 	"dist/js/mdsm.min": path.resolve(__dirname, "src/js/mdsm.js"),
-		// "dist/css/mdsm.min": path.resolve(__dirname, "src/css/mdsm.sass")
-	// },
 	resolve: {
 		extensions: ['*', '.js', '.jsx']
 	},
@@ -23,10 +19,6 @@ module.exports = {
 		path: path.join(__dirname, 'dist/'),
 		filename: 'bundle.js'
 	},
-	// output: {
-	// 	path: path.resolve(__dirname),
-	// 	filename: "[name].js",
-	// },
 	module: {
 		rules: [
 			{
@@ -107,7 +99,4 @@ module.exports = {
 	optimization: {
 		minimizer: [new UglifyJsPlugin(), new OptimizeCssAssetsPlugin()],
 	}
-	// externals: {
-	// 	jquery: "jQuery",
-	// },
 }
