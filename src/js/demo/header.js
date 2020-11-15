@@ -17,7 +17,7 @@ const Header = () => {
 
 						<a className="navbar-brand" href="#">mdsm</a>
 
-						<div className="collapse navbar-collapse navbar-collapse-left" id="navbarSupportedContent">
+						<div className="collapse navbar-collapse" id="navbarSupportedContent">
 							<ul className="navbar-nav ml-auto">
 								{MenuItems.map((item, index) => 
 									<li key={index} className={`${item.containerClasses}`}>

@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
 import Prism from 'prismjs'
+import Parser from 'html-react-parser'
 
 import Header from './js/demo/header'
 import CodeSample from './js/demo/codeSample'
-import { CodeExamples } from './js/demo/data'
+import { install, use, configure } from './js/demo/data'
 
 // MDSM
 import './js/mdsm.js'
@@ -28,30 +29,35 @@ const App = () => {
 
 			<Header />
 
-			<main>
-				<div className='container-fluid'>
-					<h2 id='installation'>Installation</h2>
-					<div className='row'>
-						<div className='col-12 col-md-6'>
-							<CodeSample lang='powershell' title='Package manager' code={CodeExamples.install} />
-						</div>
-						<div className='col-12 col-md-6'>
-							<h3>Manual</h3>
-							<p>If you don’t use a package manager, there is a manual way of installing the plugin. Just download the zip archive from below, extract it, and place the files in their proper path, based on your project.</p>
-							<a href='#' className='btn btn-primary'>Download .zip</a>
-						</div>
+			<main className='container-fluid'>
+				<h2 id='install'>{install.title}</h2>
+				<section className='row'>
+					<div className='col-12 col-md-6'>
+						<CodeSample lang='powershell' title={install.pm.title} code={install.pm.code} />
 					</div>
-					
-					<h2 id='usage'>Usage</h2>
-					<div className='row'>
-						<div className='col'>
-							<CodeSample lang='markup' description={CodeExamples.dependeciesDescription} code={CodeExamples.dependecies} />
-							<CodeSample lang='markup' description={CodeExamples.scriptsDescription} code={CodeExamples.scripts} />
-							<CodeSample lang='markup' description={CodeExamples.markupDescription} code={CodeExamples.markup} />
-							<CodeSample lang='javascript' description={CodeExamples.callDescription} code={CodeExamples.call} />
-						</div>
+					<div className='col-12 col-md-6'>
+						<h3>{install.manual.title}</h3>
+						<p>{install.manual.description}</p>
+						<a href='#' className='btn btn-primary'>{install.manual.buttonTitle}</a>
 					</div>
-				</div>
+				</section>
+				
+				<h2 id='use'>{use.title}</h2>
+				<section className='row'>
+					<div className='col'>
+						{use.data.map((element, index) => <CodeSample key={index} lang={element.language} description={element.description} code={element.code} />)}
+					</div>
+				</section>
+
+				<h2 id='#configure'>{configure.title}</h2>
+				<section className='row'>
+					{configure.data.map((element, index) => 
+						<div key={index} className='col-12'>
+							<h3>{element.title}</h3>
+							<p>{Parser(element.description)}</p>
+						</div>
+					)}
+				</section>
 			</main>
 		</div>
 	)
