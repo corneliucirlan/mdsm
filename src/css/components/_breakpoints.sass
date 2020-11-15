@@ -1,8 +1,6 @@
 @each $breakpoint in map-keys($grid-breakpoints)
 	@include media-breakpoint-up($breakpoint)
 		&.navbar-expand-#{$breakpoint}
-			// flex-direction: row
-			// justify-content: space-between
 
 			.navbar-collapse
 				position: relative

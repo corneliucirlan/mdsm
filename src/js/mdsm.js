@@ -65,7 +65,6 @@
 
 			// Check if menu has left/right added
 			if (false === $(target).hasClass('navbar-collapse-left') && false === $(target).hasClass('navbar-collapse-right')) {
-				console.log('.navbar-collapse-left added')
 				$(target).addClass('navbar-collapse-left')
 			}
 
