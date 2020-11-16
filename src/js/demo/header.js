@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { MenuItems } from './data'
 
 const Header = () => {
+	
+	// Call the MDSM plugin
+	useEffect(() => {
+		$('.navbar-toggler').mdsm()
+	})
 
 	return (
 		<header>
@@ -51,7 +56,6 @@ const Header = () => {
 			</div>
 		</header>
 	)
-
 }
 
 export default Header
