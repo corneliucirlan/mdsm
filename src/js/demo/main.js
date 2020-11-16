@@ -33,7 +33,7 @@ const Main = () => {
 				</div>
 			</section>
 
-			<h2 id='#configure'>{configure.title}</h2>
+			<h2 id='configure'>{configure.title}</h2>
 			<section className='row'>
 				{configure.data.map((element, index) => 
 					<div key={index} className='col-12'>
