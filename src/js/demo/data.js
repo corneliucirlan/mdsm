@@ -60,7 +60,7 @@ bower install mdsm`
 	},
 	manual: {
 		title: 'Manual',
-		description: 'If you don’t use a package manager, there is a manual way of installing the plugin. Just download the zip archive from below, extract it, and place the files in their proper path, based on your project.',
+		description: 'Not using a package manager? No problem. Download the latest prodution build from below and extract the content of the <code class="language-markup">dist</code> folder into your project.',
 		buttonTitle: 'Download .zip',
 	}
 }

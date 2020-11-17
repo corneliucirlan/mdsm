@@ -21,11 +21,11 @@ const Main = () => {
 				</div>
 				<div className='col-12 col-md-6'>
 					<h3>{install.manual.title}</h3>
-					<p>{install.manual.description}</p>
-					<a href='#' className='btn btn-primary'>{install.manual.buttonTitle}</a>
+					<p>{Parser(install.manual.description)}</p>
+					<a href='#' className='btn btn-outline-primary'>{install.manual.buttonTitle}</a>
 				</div>
 			</section>
-			
+
 			<h2 id='use'>{use.title}</h2>
 			<section className='row'>
 				<div className='col'>
