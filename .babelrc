@@ -12,7 +12,6 @@
 				"plugins": [
 					"show-language"
 				],
-				"theme": "okaidia",
 				"css": true
 			}
 		]
