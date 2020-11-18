@@ -3,3 +3,6 @@ webpack.config.js merge=prod
 
 # Preserve production gitignore config
 .gitignore merge=prod
+
+# Preserver main MDSM SASS file
+src/css/mdsm.sass merge=prod
