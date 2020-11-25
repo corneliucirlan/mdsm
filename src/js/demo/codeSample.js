@@ -3,7 +3,7 @@ import React from 'react'
 const CodeSample = (prop) => {
 
 	let codeLanguage = `language-${prop.lang}`,
-		hasTitle = prop.title !== '' ? true : false,
+		hasTitle = prop.title !== undefined ? true : false,
 		hasDescription = prop.description !== '' ? true : false
 
 	return (
