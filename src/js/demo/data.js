@@ -52,11 +52,11 @@ export const install = {
 	title: 'Install',
 	pm: {
 		title: 'Package Manager',
-		code: `# Via NPM
+		code: `# npm
 npm install mdsm
 
-# Via Bower
-bower install mdsm`
+# yarn
+yard add mdsm`
 	},
 	manual: {
 		title: 'Manual',
@@ -117,7 +117,7 @@ export const use = {
 		{
 			description: `Call the plugin`,
 			language: `javascript`,
-			code: `$('.navbar-nav-left').mdsm();`
+			code: `$('.navbar-toggler').mdsm();`
 		}
 	]
 } 
