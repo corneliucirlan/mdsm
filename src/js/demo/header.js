@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 
 import { MenuItems } from './data'
+import IdeaSVG from './../../svg/idea.svg'
 
 const Header = () => {
 	
@@ -42,12 +43,13 @@ const Header = () => {
 						<span className='hero-tagline'>Material Design System Menu</span>
 					</div>
 
-					<div id='about'>
+					<section id='about' className='about'>
+						<IdeaSVG />
 						<h2 className='hero-title'>About the project</h2>
 						<div className='row'>
 							<p className='col-12 col-md-7'>I’ve used a lot of plugins to create my menus for the mobile version of websites. But I never found a plugin to fully satisfy my needs. So I created my own.</p>
 						</div>
-					</div>
+					</section>
 				</div>
 			</div>
 		</header>

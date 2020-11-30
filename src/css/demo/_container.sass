@@ -30,3 +30,31 @@ main.container-fluid
 		bottom: 0
 		outline: 1px solid transparent
 		backface-visibility: hidden
+
+section
+	position: relative
+	margin-bottom: 3 * $spacer
+
+	&.about
+		padding-bottom: 5 * $spacer
+
+		@include media-breakpoint-up(md)
+			padding-bottom: 10 * $spacer
+
+svg
+	display: none
+	position: absolute
+	top: -2.5 * $spacer
+	right: 0
+	fill: $black
+	opacity: .5
+	transform: scale(.7)
+
+	&.idea_svg__svg
+		fill: $white
+
+	@include media-breakpoint-up(md)
+		display: block
+		top: 3rem
+		left: -15rem
+		transform: scale(1)
