@@ -4,9 +4,6 @@ html
 body
 	overflow-x: hidden
 
-main
-	background: $white
-
 .app-container
 	widows: 100vw
 	height: 300vh
@@ -24,6 +21,7 @@ main
 		transform: skewY($angle)
 		padding-top: 10rem
 		padding-bottom: 10rem
+		mix-blend-mode: hard-light
 
 main.container-fluid
 	margin-top: $skew-padding
@@ -31,15 +29,14 @@ main.container-fluid
 .skewed-background
 	position: relative
 	transform: skewy(-$angle)
+	mix-blend-mode: lighten
 
 	&:before
-		// background: $black $skew-background
-		background: $white
+		background: white
 		content: ""
 		position: absolute
 		left: 0
 		top: 0
-		// top: -100%
 		right: 0
 		bottom: 0
 		outline: 1px solid transparent
