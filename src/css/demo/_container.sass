@@ -4,6 +4,14 @@ html
 body
 	overflow-x: hidden
 
+main
+	background: $white
+
+.app-container
+	widows: 100vw
+	height: 300vh
+	background: $black $skew-background
+
 .container-fluid
 	max-width: $max-content-width
 	margin: auto
@@ -11,6 +19,11 @@ body
 	header &
 		transform: skewY($angle)
 		position: relative
+
+	main &
+		transform: skewY($angle)
+		padding-top: 10rem
+		padding-bottom: 10rem
 
 main.container-fluid
 	margin-top: $skew-padding
@@ -20,12 +33,13 @@ main.container-fluid
 	transform: skewy(-$angle)
 
 	&:before
-		background: $black $skew-background
+		// background: $black $skew-background
+		background: $white
 		content: ""
 		position: absolute
 		left: 0
 		top: 0
-		top: -100%
+		// top: -100%
 		right: 0
 		bottom: 0
 		outline: 1px solid transparent

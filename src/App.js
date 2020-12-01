@@ -13,10 +13,10 @@ import './App.sass'
 const App = () => {
 
 	return (
-		<div>
+		<div className='app-container'>
 			<Header />
 			<Main />
-			<Footer />
+			{/* <Footer /> */}
 		</div>
 	)
 }

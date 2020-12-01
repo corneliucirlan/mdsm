@@ -43,6 +43,7 @@ pre[class*="language-"] {
 pre[class*="language-"] {
 	// background: #282c34;
 	background: $black $skew-background;
+	background: transparent;
 }
 
 /* Inline code */
