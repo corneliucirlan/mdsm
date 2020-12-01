@@ -22,7 +22,7 @@ const Main = () => {
 					<div className='col-12'>
 						<h2 id='install'>{install.title}</h2>
 					</div>
-					<InstallSVG />
+					{/* <InstallSVG /> */}
 					<div className='col-12 col-md-6'>
 						<CodeSample lang='powershell' title={install.pm.title} code={install.pm.code} />
 					</div>
@@ -46,7 +46,7 @@ const Main = () => {
 					<div className='col-12'>
 						<h2 id='configure'>{configure.title}</h2>
 					</div>
-					<ConfigureSVG />
+					{/* <ConfigureSVG /> */}
 					{configure.data.map((element, index) => 
 						<div key={index} className='col-12'>
 							<h3>{element.title}</h3>
