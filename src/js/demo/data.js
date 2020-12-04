@@ -148,3 +148,12 @@ export const configure = {
 		}
 	]
 }
+
+// Footer
+export const footer = {
+	title: `Get in touch`,
+	text: [
+		`If you want to contact me for a question, suggestion, or just to chat, my inbox is always opened at <a class='footer' href='mailto:corneliu@corneliucirlan.com' target='_blank'>corneliu@corneliucirlan.com</a>`,
+		`To add your contribution to this project, the source is <a class='footer' href='https://github.com/corneliucirlan/mdsm' target='_blank'>hosted on GitHub</a>.`
+	]
+}

@@ -16,7 +16,7 @@ const App = () => {
 		<div className='app-container'>
 			<Header />
 			<Main />
-			{/* <Footer /> */}
+			<Footer />
 		</div>
 	)
 }
