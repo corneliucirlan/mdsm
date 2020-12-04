@@ -4,8 +4,6 @@ import Parser from 'html-react-parser'
 
 import CodeSample from './codeSample'
 import { install, use, configure } from './data'
-import InstallSVG from './../../svg/install.svg'
-import ConfigureSVG from './../../svg/configure.svg'
 
 const Main = () => {
 
@@ -22,7 +20,6 @@ const Main = () => {
 					<div className='col-12'>
 						<h2 id='install'>{install.title}</h2>
 					</div>
-					{/* <InstallSVG /> */}
 					<div className='col-12 col-md-6'>
 						<CodeSample lang='powershell' title={install.pm.title} code={install.pm.code} />
 					</div>
@@ -46,7 +43,6 @@ const Main = () => {
 					<div className='col-12'>
 						<h2 id='configure'>{configure.title}</h2>
 					</div>
-					{/* <ConfigureSVG /> */}
 					{configure.data.map((element, index) => 
 						<div key={index} className='col-12'>
 							<h3>{element.title}</h3>
