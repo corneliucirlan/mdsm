@@ -1,6 +1,7 @@
 {
 	"presets": ["@babel/preset-env", "@babel/preset-react"],
 	"plugins": [
+		"@babel/plugin-transform-runtime",
 		[
 			"prismjs",
 			{
@@ -12,7 +13,6 @@
 				"plugins": [
 					"show-language"
 				],
-				"theme": "okaidia",
 				"css": true
 			}
 		]
