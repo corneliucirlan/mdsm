@@ -7,13 +7,13 @@ const CodeSample = (prop) => {
 		hasDescription = prop.description !== '' ? true : false
 
 	return (
-		<div>
+		<article>
 			{ hasTitle && <h3>{prop.title}</h3> }
 			{ hasDescription && <p>{prop.description}</p> }
 			<pre className={codeLanguage}>
 				<code>{prop.code}</code>
 			</pre>
-		</div>
+		</article>
 	)
 }
 
