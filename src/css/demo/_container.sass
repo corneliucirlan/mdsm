@@ -5,36 +5,33 @@ body
 	overflow-x: hidden
 
 .app-container
-	widows: 100vw
-	height: auto1
 	background: $black $skew-background
 
 .container-fluid
 	max-width: $max-content-width
 	margin: auto
 
-	header &
-		transform: skewY($angle)
-		position: relative
-
 	main &
 		transform: skewY($angle)
-		padding-top: 10rem
-		padding-bottom: 10rem
+		padding-top: $skew-margin
+		padding-bottom: $skew-margin
 		mix-blend-mode: hard-light
-	
+
+		@include media-breakpoint-up(md)
+			padding-top: $skew-padding
+			padding-bottom: $skew-padding
+
 	footer &
 		padding-bottom: 6rem
 		color: white
 		text-align: right
 
-main.container-fluid
-	margin-top: $skew-padding
-
 .skewed-background
 	position: relative
 	transform: skewy(-$angle)
 	mix-blend-mode: lighten
+	margin-top: $skew-margin
+	margin-bottom: $skew-margin
 
 	&:before
 		background: white
@@ -51,26 +48,5 @@ section
 	position: relative
 	margin-bottom: 3 * $spacer
 
-	&.about
-		padding-bottom: 5 * $spacer
-
-		@include media-breakpoint-up(md)
-			padding-bottom: 10 * $spacer
-
-svg
-	display: none
-	position: absolute
-	top: -2.5 * $spacer
-	right: 0
-	fill: $black
-	opacity: .5
-	transform: scale(.7)
-
-	&.idea_svg__svg
-		fill: $white
-
-	@include media-breakpoint-up(md)
-		display: block
-		top: 3rem
-		left: -15rem
-		transform: scale(1)
+article
+	margin-bottom: 2 * $spacer

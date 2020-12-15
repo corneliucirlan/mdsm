@@ -5,9 +5,9 @@ import { footer } from './data'
 
 const Footer = () => {
 	return (
-		<footer className=''>
+		<footer>
 			<div className='container-fluid'>
-				<h2 className='footer-title'>{footer.title}</h2>			
+				<h2 id='contact' className='footer-title'>{footer.title}</h2>			
 				<div className='row'>
 					{footer.text.map((element, index) => 
 						<div key={index} className='col-12 col-md-6 offset-md-6'>

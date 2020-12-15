@@ -1,8 +1,18 @@
+.navbar
+	padding-left: 0
+	padding-right: 0
+	
 .navbar-brand
 	font-size: 3rem
 	text-transform: uppercase
 	margin-top: 0
 	margin-bottom: 0
+	padding-left: inherit
+	padding-right: inherit
+
+	@include media-breakpoint-up(md)
+		margin-left: 0
+		margin-right: 0
 
 .hero-container
 	color: $white
