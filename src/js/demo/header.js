@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-import { MenuItems } from './data'
+import { menuItems, about, hero } from './data'
 
 const Header = () => {
 	
@@ -20,7 +20,7 @@ const Header = () => {
 
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul className="navbar-nav ml-auto">
-						{MenuItems.map((item, index) => 
+						{menuItems.map((item, index) => 
 							<li key={index} className={`${item.containerClasses}`}>
 								<a className={`${item.classes}`} href={`${item.href}`}>{item.title}</a>
 									{
@@ -37,14 +37,14 @@ const Header = () => {
 
 			<div className='hero-container'>
 				<div>
-					<h1 className='hero-title'>MDSM</h1>
-					<span className='hero-tagline'>Material Design System Menu</span>
+					<h1 className='hero-title'>{hero.title}</h1>
+					<span className='hero-tagline'>{hero.description}</span>
 				</div>
 
 				<section id='about' className='about'>
-					<h2 className='hero-title'>About the project</h2>
+					<h2 className='hero-title'>{about.title}</h2>
 					<div className='row'>
-						<p className='col-12 col-md-7'>I’ve used a lot of plugins to create my menus for the mobile version of websites. But I never found a plugin to fully satisfy my needs. So I created my own.</p>
+						<p className='col-12 col-md-7'>{about.description}</p>
 					</div>
 				</section>
 			</div>
