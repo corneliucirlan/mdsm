@@ -1,13 +1,6 @@
 // Menu Items
 export const menuItems = [
 	{
-		title: 'Home',
-		href: '/',
-		classes: 'nav-link',
-		containerClasses: 'nav-item active',
-		hasSubmenu: false,
-	},
-	{
 		title: 'About',
 		href: '#about',
 		classes: 'nav-link',
