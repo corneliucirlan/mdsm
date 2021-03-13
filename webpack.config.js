@@ -2,10 +2,9 @@ const path = require("path"),
 	webpack = require("webpack"),
 	HtmlWebPackPlugin = require("html-webpack-plugin"),
 	MiniCssExtractPlugin = require("mini-css-extract-plugin"),
-	OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin"),
-	FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries"),
+	RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts'),
 	StyleLintPlugin = require("stylelint-webpack-plugin"),
-	UglifyJsPlugin = require("uglifyjs-webpack-plugin"),
+	TerserPlugin = require('terser-webpack-plugin'),
 	autoprefixer = require("autoprefixer")
 
 module.exports = {
@@ -14,7 +13,7 @@ module.exports = {
 	resolve: {
 		extensions: ['*', '.js', '.jsx']
 	},
-	devtool: 'source-map',
+	devtool: 'eval',
 	output: {
 		path: path.join(__dirname, 'dist/'),
 		filename: 'bundle.js'
@@ -75,7 +74,7 @@ module.exports = {
 		],
 	},
 	plugins: [
-		new FixStyleOnlyEntriesPlugin(),
+		new RemoveEmptyScriptsPlugin(),
 		new StyleLintPlugin(),
 		new MiniCssExtractPlugin({
 			filename: "[name].css",
@@ -97,6 +96,9 @@ module.exports = {
 		}),
 	],
 	optimization: {
-		minimizer: [new UglifyJsPlugin(), new OptimizeCssAssetsPlugin()],
+		minimize: true,
+    	minimizer: [new TerserPlugin({
+			parallel: true
+		})],
 	}
 }
