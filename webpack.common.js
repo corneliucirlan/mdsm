@@ -1,22 +1,11 @@
-const path = require("path"),
-	webpack = require("webpack"),
+const webpack = require("webpack"),
+	HtmlWebPackPlugin = require("html-webpack-plugin"),
 	MiniCssExtractPlugin = require("mini-css-extract-plugin"),
-	OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin"),
-	FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries"),
 	StyleLintPlugin = require("stylelint-webpack-plugin"),
-	UglifyJsPlugin = require("uglifyjs-webpack-plugin"),
 	autoprefixer = require("autoprefixer")
 
 module.exports = {
 	context: __dirname,
-	entry: {
-		"dist/js/mdsm.min": path.resolve(__dirname, "src/js/mdsm.js"),
-		"dist/css/mdsm.min": path.resolve(__dirname, "src/css/mdsm.sass")
-	},
-	output: {
-		path: path.resolve(__dirname),
-		filename: "[name].js",
-	},
 	module: {
 		rules: [
 			{
@@ -44,7 +33,6 @@ module.exports = {
 		],
 	},
 	plugins: [
-		new FixStyleOnlyEntriesPlugin(),
 		new StyleLintPlugin(),
 		new MiniCssExtractPlugin({
 			filename: "[name].css",
@@ -60,11 +48,9 @@ module.exports = {
 				],
 			},
 		}),
-	],
-	optimization: {
-		minimizer: [new UglifyJsPlugin(), new OptimizeCssAssetsPlugin()],
-	},
-	externals: {
-		jquery: "jQuery",
-	},
+		new HtmlWebPackPlugin({
+			template: "./src/index.html",
+			filename: "./index.html",
+		}),
+	]
 }
