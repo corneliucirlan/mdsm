@@ -55,7 +55,7 @@
 		"webpack-remove-empty-scripts": "^0.7.1"
 	},
 	"dependencies": {
-		"bootstrap": "^5.0.0-beta3",
+		"bootstrap": "^5.0.1",
 		"jquery": "^3.5.1"
 	}
 }
