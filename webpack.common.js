@@ -1,5 +1,4 @@
 const webpack = require("webpack"),
-	HtmlWebPackPlugin = require("html-webpack-plugin"),
 	MiniCssExtractPlugin = require("mini-css-extract-plugin"),
 	StyleLintPlugin = require("stylelint-webpack-plugin"),
 	autoprefixer = require("autoprefixer")
@@ -47,10 +46,6 @@ module.exports = {
 					autoprefixer()
 				],
 			},
-		}),
-		new HtmlWebPackPlugin({
-			template: "./src/index.html",
-			filename: "./index.html",
 		}),
 	]
 }

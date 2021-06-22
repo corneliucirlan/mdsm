@@ -27,5 +27,8 @@ module.exports = merge(common, {
 		minimizer: [
 			new TerserPlugin()
 		]
-	}
+	},
+	externals: {
+		jquery: "jQuery",
+	},
 })
