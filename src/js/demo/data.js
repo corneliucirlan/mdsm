@@ -126,7 +126,7 @@ export const use = {
 			code: `$('.navbar-toggler').mdsm();`
 		}
 	]
-} 
+}
 
 // Configure data
 export const configure = {
@@ -143,7 +143,7 @@ export const configure = {
 		},
 		{
 			title: `Placement`,
-			description: `Use Bootstrap's included <a href="https://getbootstrap.com/docs/4.5/utilities/position/" target="_blank">positioning utilities</a> to place the navbar.`
+			description: `Use Bootstrap's included <a href="https://getbootstrap.com/docs/5.0/utilities/position/" target="_blank">positioning utilities</a> to place the navbar.`
 		},
 		{
 			title: `Responsive behaviors`,
@@ -151,7 +151,7 @@ export const configure = {
 		},
 		{
 			title: `Drop shadow`,
-			description: `If you need any shadows on your menus, use the built-in <a href='https://getbootstrap.com/docs/4.5/utilities/shadows' target='_blank'>Bootstrap utilities</a>.`
+			description: `If you need any shadows on your menus, use the built-in <a href='https://getbootstrap.com/docs/5.0/utilities/shadows' target='_blank'>Bootstrap utilities</a>.`
 		}
 	]
 }
