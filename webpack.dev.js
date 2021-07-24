@@ -1,4 +1,5 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin")
+const HtmlWebPackPlugin = require("html-webpack-plugin"),
+	FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 // Merge webpack configs
 const { merge } = require('webpack-merge')
@@ -19,6 +20,12 @@ module.exports = merge(common, {
 					},
 				],
 			},
+
+			// Images
+			{
+				test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+				type: 'asset/resource',
+			},
 		]
 	},
 	plugins: [
@@ -26,5 +33,6 @@ module.exports = merge(common, {
 			template: "./src/index.html",
 			filename: "./index.html",
 		}),
+		new FaviconsWebpackPlugin('./src/js/demo/assets/icon.svg')
 	]
 })
