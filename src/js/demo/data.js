@@ -164,3 +164,21 @@ export const footer = {
 		`To add your contribution to this project, the source is <a class='footer' href='https://github.com/corneliucirlan/mdsm' target='_blank'>hosted on GitHub</a>.`
 	]
 }
+
+// Metadata
+export const metadata = {
+	title: "MDSM - Material Design System Menu",
+	description: "A jQuery plugin built on top of Bootstrap’s framework to create a mobile responsive menu similar to Google’s Material Design.",
+	image: "#",
+	url: "https://mdsm.corneliucirlan.com",
+	schema: {
+		"@context": "https://schema.org/",
+		"@type": "Product",
+		name: "MDSM - Material Design System Menu",
+		image: "#",
+		description: "A jQuery plugin built on top of Bootstrap’s framework to create a mobile responsive menu similar to Google’s Material Design.",
+		brand: "Corneliu Cîrlan"
+	},
+	facebookAppID: "521959071625533",
+	twitterUsername: "@corneliucirlan",
+}

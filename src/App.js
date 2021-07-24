@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 
 import TagManager from 'react-gtm-module'
+import Metadata from './js/demo/Metadata'
 
 import Header from './js/demo/header'
 import Main from './js/demo/main'
@@ -29,6 +30,8 @@ const App = () => {
 
 	return (
 		<div className='app-container'>
+			<Metadata />
+
 			<Header />
 			<Main />
 			<Footer />
