@@ -18,22 +18,21 @@ const Metadata = () => {
 			<meta property='og:description' content={metadata.description} />
 			<meta property='og:image' content={metadata.image} />
 			<meta property='og:url' content={metadata.url} />
+			<meta property='og:type' content='website' />
 			<meta name='twitter:card' content='summary_large_image' />
 
 			{/* <!--  Non-Essential, But Recommended --> */}
-
 			<meta property='og:site_name' content={metadata.title} />
 			<meta name='twitter:image:alt' content={metadata.title} />
 
 			{/* <!--  Non-Essential, But Required for Analytics --> */}
-
 			<meta property='fb:app_id' content={metadata.facebookAppID} />
 			<meta name='twitter:site' content={metadata.twitterUsername} />
 
 			{/* <link rel='preconnect' href='https://fonts.googleapis.com' /> */}
 			<link rel='preconnect' href='https://www.google-analytics.com' />
 
-			{/* <link rel='manifest' href='/manifest.json' /> */}
+			<link rel='manifest' href='/manifest.json' />
 
 			<script type="application/ld+json">{JSON.stringify(metadata.schema)}</script>
 
