@@ -16,7 +16,7 @@ const Metadata = () => {
 
 			<meta property='og:title' content={metadata.title} />
 			<meta property='og:description' content={metadata.description} />
-			<meta name='image' property='og:image' content={metadata.image} />
+			<meta property='og:image' content={metadata.image} />
 			<meta property='og:url' content={metadata.url} />
 			<meta property='og:type' content='website' />
 			<meta name='twitter:card' content='summary_large_image' />
