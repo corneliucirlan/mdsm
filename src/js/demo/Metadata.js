@@ -20,6 +20,7 @@ const Metadata = () => {
 			<meta property='og:url' content={metadata.url} />
 			<meta property='og:type' content='website' />
 			<meta name='twitter:card' content='summary_large_image' />
+			<meta name='author' content={metadata.author} />
 
 			{/* <!--  Non-Essential, But Recommended --> */}
 			<meta property='og:site_name' content={metadata.title} />

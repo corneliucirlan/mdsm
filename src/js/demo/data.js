@@ -173,6 +173,7 @@ export const metadata = {
 	description: "A jQuery plugin built on top of Bootstrap’s framework to create a mobile responsive menu similar to Google’s Material Design.",
 	image: screenshot,
 	url: "https://mdsm.corneliucirlan.com",
+	author: 'Corneliu Cîrlan',
 	schema: {
 		"@context": "https://schema.org/",
 		"@type": "Product",
