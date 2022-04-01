@@ -1,5 +1,6 @@
 {
 	"extends": "stylelint-config-recommended",
+	"customSyntax": "postcss-html",
 	"rules": {
 		"indentation": "tab",
 		"no-descending-specificity": null
