@@ -1,6 +1,6 @@
 {
 	"name": "mdsm",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "A jQuery plugin built on top of Bootstrap’s framework to create a mobile responsive menu similar to Google’s Material Design.",
 	"main": "dist/js/mdsm.min.js",
 	"scripts": {
