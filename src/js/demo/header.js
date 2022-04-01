@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { menuItems, about, hero } from './data'
 
 const Header = () => {
-	
+
 	// Call the MDSM plugin
 	useEffect(() => {
 		$('.navbar-toggler').mdsm()
@@ -20,7 +20,7 @@ const Header = () => {
 
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul className="navbar-nav ml-auto">
-						{menuItems.map((item, index) => 
+						{menuItems.map((item, index) =>
 							<li key={index} className={`${item.containerClasses}`}>
 								<a className={`${item.classes}`} href={`${item.href}`}>{item.title}</a>
 									{
