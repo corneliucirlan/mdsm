@@ -2,10 +2,48 @@
 <html lang="en">
 
 	<head>
+		<style>
+			.placeholder {
+				position: relative;
+				width: 100vw;
+				height: 100vh;
+				background: #040C1C linear-gradient(230deg, #040C1C, #052442);
+			}
+
+			.dual-ring-loader {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				display: inline-block;
+				width: 80px;
+				height: 80px;
+			}
+			.dual-ring-loader:after {
+					content: " ";
+					display: block;
+					width: 64px;
+					height: 64px;
+					margin: 8px;
+					border-radius: 50%;
+					border: 6px solid #fff;
+					border-color: #fff transparent #fff transparent;
+					animation: dual-ring-spin 1.2s linear infinite;
+			}
+
+			@keyframes dual-ring-spin {
+				0% { transform: rotate(0deg); }
+				100% { transform: rotate(360deg); }
+			}
+		</style>
 	</head>
 
 	<body>
-		<div id="App"></div>
+		<div id="App">
+			<div class="placeholder">
+				<div class="dual-ring-loader"></div>
+			</div>
+		</div>
 	</body>
 
 </html>
