@@ -7,9 +7,6 @@ import Header from './js/demo/header'
 import Main from './js/demo/main'
 import Footer from './js/demo/footer'
 
-// MDSM
-import './js/mdsm.js'
-
 // CSS
 import './App.sass'
 
