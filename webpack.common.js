@@ -44,10 +44,10 @@ module.exports = {
 		new MiniCssExtractPlugin({
 			filename: "[name].css",
 		}),
-		new webpack.ProvidePlugin({
-			$: "jquery",
-			jQuery: "jquery",
-		}),
+		// new webpack.ProvidePlugin({
+		// 	$: "jquery",
+		// 	jQuery: "jquery",
+		// }),
 		new webpack.LoaderOptionsPlugin({
 			options: {
 				postcss: [

@@ -13,13 +13,13 @@ module.exports = merge(common, {
 	entry: {
 		index: {
 			import: './src/index.js',
-			dependOn: 'jquery'
+			// dependOn: 'jquery'
 		},
 		mdsm: {
-			import: './src/js/mdsm.js',
-			dependOn: 'jquery'
+			import: './src/js/mdsm.vanilla.js',
+			// dependOn: 'jquery'
 		},
-		jquery: 'jquery'
+		// jquery: 'jquery'
 	},
 	output: {
 		filename: '[name].js',
