@@ -6,7 +6,10 @@ const Header = () => {
 
 	// Call the MDSM plugin
 	useEffect(() => {
+		// jQuery
 		// $('.navbar-toggler').mdsm()
+
+		// Vanilla JS
 		new mdsm(document.querySelector('.navbar-toggler'))
 	})
 

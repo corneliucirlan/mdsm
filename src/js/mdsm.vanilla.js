@@ -7,8 +7,7 @@
  * @author Corneliu Cirlan (www.corneliucirlan.com)
  */
 
-(function()
-{
+(function() {
 
 	this.mdsm = function(element) {
 
@@ -49,6 +48,25 @@
 		const toggleDropDown = target => {
 			target.classList.toggle(activeState)
 			getNextSibling(target, '.'+dropdown.menu).classList.toggle(activeState)
+		}
+
+		// Check if device is touch enabled
+		const isTouchEnabled = () => {
+
+			let prefixes = ' -webkit- -moz- -o- -ms- '.split(' ');
+
+			let mq = function (query) {
+				return window.matchMedia(query).matches;
+			}
+
+			if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+				return true;
+			}
+
+			// include the 'heartz' as a way to have a non matching MQ to help terminate the join
+			// https://git.io/vznFH
+			let query = ['(', prefixes.join('touch-enabled),('), 'heartz', ')'].join('');
+			return mq(query);
 		}
 
 		// Menu trigger
@@ -97,23 +115,51 @@
 				closeMenu()
 		})
 
-		// Top level menu item click
-		document.querySelectorAll('.nav-link')
-			.forEach(item => {
-				item.addEventListener('click', event => {
+		// Clicks if device is touch enabled
+		if (isTouchEnabled())
+				// Top level menu item click
+				document.querySelectorAll('.nav-link')
+					.forEach(item => {
+						item.addEventListener('click', event => {
 
-					// Dropdown menu toggle
-					if (item.classList.contains(dropdown.toggle)) {
-						event.preventDefault()
-						toggleDropDown(event.target)
-					}
+							// Dropdown menu toggle
+							if (item.classList.contains(dropdown.toggle)) {
+								event.preventDefault()
+								toggleDropDown(event.target)
+							}
 
-					// Close menu
-					if ('#' !== item.getAttribute('href'))
-						closeMenu()
+							// Close menu
+							if ('#' !== item.getAttribute('href'))
+								closeMenu()
 
-				})
-			})
+						})
+					})
+
+			// Device not touch enabled
+			else {
+				document.querySelectorAll('.'+dropdown.toggle)
+					.forEach(item => {
+						console.log(item)
+						item.addEventListener('mouseover', event => {
+							// Toggle dropdown menu
+							toggleDropDown(event.target)
+
+							// Prevent event propagation
+							event.stopImmediatePropagation()
+						})
+					})
+				document.querySelectorAll('.'+dropdown.toggle)
+					.forEach(item => {
+						console.log(item)
+						item.addEventListener('mouseout', event => {
+							// Toggle dropdown menu
+							toggleDropDown(event.target)
+
+							// Prevent event propagation
+							event.stopImmediatePropagation()
+						})
+					})
+			}
 
 		// Dropdown menu item click
 		document.querySelectorAll('.dropdown-item')
