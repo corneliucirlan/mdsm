@@ -11,8 +11,6 @@
 
 	this.mdsm = function(element) {
 
-		console.log('MDSM Vanilla JS Works.')
-
 		// Disable scrolling
 		const disableScroll = 'mdsm-ds'
 
@@ -117,6 +115,7 @@
 
 		// Clicks if device is touch enabled
 		if (isTouchEnabled())
+
 				// Top level menu item click
 				document.querySelectorAll('.nav-link')
 					.forEach(item => {
@@ -141,6 +140,7 @@
 					.forEach(item => {
 						console.log(item)
 						item.addEventListener('mouseover', event => {
+
 							// Toggle dropdown menu
 							toggleDropDown(event.target)
 
@@ -152,6 +152,7 @@
 					.forEach(item => {
 						console.log(item)
 						item.addEventListener('mouseout', event => {
+
 							// Toggle dropdown menu
 							toggleDropDown(event.target)
 
