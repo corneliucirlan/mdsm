@@ -10,6 +10,21 @@ const common = require('./webpack.common.js')
 module.exports = merge(common, {
 	mode: 'development',
 	devtool: 'source-map',
+	entry: {
+		'index': {
+			import: './src/index.js',
+			// dependOn: 'jquery'
+		},
+		'mdsm.vanilla': './src/js/mdsm.vanilla.js',
+		// 'mdsm.jquery': {
+		// 	import: './src/js/mdsm.jquery.js',
+		// 	dependOn: 'jquery'
+		// },
+		// 'jquery': 'jquery'
+	},
+	output: {
+		filename: '[name].js',
+	},
 	module: {
 		rules: [
 			{
