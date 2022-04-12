@@ -83,6 +83,7 @@
 
 		// Open mobile menu
 		const openMenu = () => {
+
 			// Add overlay to DOM
 			parent.insertBefore(overlayHTML, target)
 
@@ -149,7 +150,6 @@
 					})
 				document.querySelectorAll('.'+dropdown.toggle)
 					.forEach(item => {
-						console.log(item)
 						item.addEventListener('mouseout', event => {
 
 							// Toggle dropdown menu
