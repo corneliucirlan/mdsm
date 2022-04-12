@@ -1,6 +1,6 @@
 # MDSM - Material Design System Menu
 
-As the name suggests (or at least, tries to), MDSM is a plugin for displaying navigation menus on mobile devices. It is written in jQuery and using the Bootstrap framework as a base.-
+As the name suggests (or at least, tries to), MDSM is a plugin for displaying navigation menus on mobile devices. It is written for both jQuery and JavaScript, using the Bootstrap framework as a base.-
 
 
 ## Installation
@@ -24,7 +24,7 @@ Start by adding the dependencies to your project.
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
-<!-- jQuery -->
+<!-- jQuery (if required by your use case) -->
 <script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
 ```
 Then, add the scripts you downloaded earlier.
@@ -32,8 +32,11 @@ Then, add the scripts you downloaded earlier.
 <!-- CSS -->
 <link rel="stylesheet" href="mdsm.min.css" />
 
-<!-- JS -->
-<script src="mdsm.min.js"></script>
+<!-- jQuery version -->
+<script src="mdsm.jquery.min.js"></script>
+
+<!-- JavaScript version -->
+<script src="mdsm.vanilla.min.js"></script>
 ```
 After that, add the HTML template. The plugin makes use of Bootstrap’s ```data-target``` attribute to target the menu. By default, the menu will slide from the left side, as the ```navbar-collapse-left``` class is automatically added on runtime. To change the slide in from the right, add the ```navbar-collapse-right``` class to the targeted menu.
 ```html
@@ -60,6 +63,14 @@ After that, add the HTML template. The plugin makes use of Bootstrap’s ```data
 		</ul>
 	</div>
 </nav>
+```
+Finally, call the plugin.
+```jsvascript
+// jQuery version
+$('.navbar-toggler').mdsm();
+
+// JavaScript version
+new mdsm(document.querySelector('.navbar-toggler'));
 ```
 
 
