@@ -1,7 +1,7 @@
 /**
  * MDSM
  *
- * jQuery plugin that enables mobile slide navigation for Bootstrap v4 framework
+ * jQuery | JavaScript plugin that enables mobile slide navigation for Bootstrap v5 framework
  *
  * @version 1.0.3
  * @author Corneliu Cirlan (www.corneliucirlan.com)
