@@ -12,7 +12,8 @@ module.exports = merge(common, {
 	mode: 'production',
 	devtool: 'source-map',
 	entry: {
-		"dist/js/mdsm.min": path.resolve(__dirname, "src/js/mdsm.js"),
+		"dist/js/mdsm.jquery.min": path.resolve(__dirname, "src/js/mdsm.jquery.js"),
+		"dist/js/mdsm.vanilla.min": path.resolve(__dirname, "src/js/mdsm.vanilla.js"),
 		"dist/css/mdsm.min": path.resolve(__dirname, "src/css/mdsm.sass")
 	},
 	output: {
